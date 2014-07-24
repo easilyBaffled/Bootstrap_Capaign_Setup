@@ -1,0 +1,56 @@
+.heading_button:before {
+    /* symbol for "opening" panels */
+    font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
+    content: "\e114";    /* adjust as needed, taken from bootstrap.css */
+    float: right;        /* adjust as needed */
+    color: #999999;         /* adjust as needed */
+   	margin-top: 10px;
+}
+.heading_button.collapsed:before {
+    /* symbol for "collapsed" panels */
+    content: "\e080";    /* adjust as needed, taken from bootstrap.css */
+   margin-top: 10px;
+}
+
+.heading_button {
+	background-color: #eeeeee;
+	margin-bottom: 10px;
+}
+
+.form_label {
+	font-weight: 700;
+}
+
+
+.badge_running{
+	background-color: rgb(92, 184, 92);
+}
+
+.badge_broken{
+	background-color: rgb(217, 83, 79);
+}
+
+.badge_waiting{
+	background-color: rgb(240, 173, 78);
+}
+
+.error{
+	color: rgb(217, 83, 79);
+}
+
+.side_bar_campaign{
+	padding: 10px;
+}
+
+.sidebar>a{
+	border-radius: 4px 0 0 4px; 
+}
+
+.sidebar>div{
+	border-radius: 4px 0 0 4px; 
+}
+
+.glyphicon-remove:hover {
+	background-color: rgb(217, 83, 79);
+	color: white;
+}

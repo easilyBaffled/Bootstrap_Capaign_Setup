@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="bootstrap-3.1.1-dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />					
+		<link rel="stylesheet" type="text/css" href="Bootstrap_Capaign_Setup.css" />					
+		<link rel="stylesheet" href="bootstrap-datetimepicker.min.css" />								
+		
+		<script type="text/javascript" src="jquery.min.js"></script>	
+		<script type="text/javascript" src="bootstrap-3.1.1-dist/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="Bootstrap_Capaign_Setup.js"></script>						
+		<script type="text/javascript" src="moment.min.js"></script>									
+		<script type="text/javascript" src="bootstrap-datetimepicker.min.js"></script>					
+
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-8 col-xs-12">
+					<div class="row">
+						<div class="btn heading_button col-xs-12 collapsed" data-toggle="collapse" href="#collapseTwo">
+							<h4> Campaign Setup</h4>
+						</div>
+					</div>
+					<div class="row">
+						<form class="form-horizontal col-xs-12 collapse" id="collapseTwo">
+							<fieldset>
+								<!-- Prepended text-->
+								<div class="form-group">
+									<label class="col-sm-4 col-xs-12 control-label">Campaign Name</label>
+									<div class="col-sm-4 col-xs-8">
+										<div class="input-group">
+											<input class="form-control campaign_creation_form_input" id="campaign_name" name="campaign_name"  placeholder="Name" type="text" >
+										</div>
+									</div>
+								</div>
+								<!-- Prepended text-->
+								<div class="form-group">
+									<label class="col-sm-4 col-xs-12 control-label" for="Total Budget">Total Budget</label>
+									<div class="col-sm-4 col-xs-8">
+										<div class="input-group">
+											<span class="input-group-addon">$</span>
+											<input class="form-control campaign_creation_form_input" id="total_budget" name="Total Budget"  placeholder="0.00" type="text">
+										</div>
+
+									</div>
+								</div>
+								<!-- File Button -->
+								<div class="form-group">
+									<label class="col-sm-4 control-label" for="file">Add File</label>
+									<div class="col-sm-2">
+										<input class="input-file campaign_creation_form_input" id="uploaded_file" name="file" type="file">
+									</div>
+								</div>
+								<!-- FLight Time -->
+								<div class="form-group">
+									<label class="col-sm-4 col-xs-12 control-label" for="Cal">Date and Time</label>
+									<div class="col-sm-4 col-xs-8">
+										<div class='input-group date' id='datetimepicker1'>
+											<input class="form-control campaign_creation_form_input" id="start_date_time" type='text'  placeholder="Start" />
+											<span class="input-group-addon glyphicon glyphicon-calendar"></span>
+										</div>
+									</div>
+									<div class="col-sm-4 col-xs-8">
+										<div class='input-group date' id='datetimepicker2'>
+											<input class="form-control campaign_creation_form_input" id="end_date_time" type='text' placeholder="End" />
+											<span class="input-group-addon glyphicon glyphicon-calendar"></span>
+										</div>
+									</div>
+								</div>
+								<!-- Add Targets -->
+								<div class="form-group">
+									<label class="col-sm-4 col-xs-12 control-label " for="Targets">Targets</label>
+									<div class="col-sm-4 col-xs-8">
+										<select id="targets" name="Targets" class="form-control" onchange="add_target_selector(this)">
+											<option value="0">Add Targets</option>
+											<option value="Zip">Add Zip Code</option>
+											<option value="Gender">Add Gender</option>
+											<option value="Device">Add Device</option>
+										</select>
+									</div>
+								</div>
+								<div class="target_selector col-xs-12"></div>
+								<!-- Button -->
+								<div class="form-group">
+									<label class="col-sm-4 control-label" for="Save Campaign Setup"></label>
+									<div class="col-xs-4">
+										<button id="save_campaign_setup" name="Save Campaign Setup" class="btn btn-primary">
+											Save
+										</button>
+									</div>
+								</div>
+							</fieldset>
+						</form>
+					</div>
+				</div>
+				<div class="col-md-4 hidden-xs hidden-sm">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3>Campaigns</h3>
+						</div>
+						<div id="sidebar" class="list-group">
+							<a href="#campaign1" class="list-group-item campaign_name campaign1"  data-parent="#sidebar"><span id="campaign_name">Campaign 1</span><span class="badge badge_broken">X</span></a>
+							<div id="campaign1" class="list-group subitem collapse side_bar_campaign">
+								<div class="info_display" id="total_budget" >$1,000,000.00</div>
+								<div id="uploaded_file" class="info_display error">No File</div>
+								<div>
+									<span class="info_display" id="start_date_time">5/12/14</span>-<span id="end_date_time" class="info_display error">No End Date</span>
+								</div>
+								<div id="targets" class="info_display">No targets</div>
+							</div>
+							<a href="#campaign2" class="list-group-item campaign_name campaign2"  data-parent="#sidebar"><span id="campaign_name">Campaign A</span><span class="badge badge_running">3d</span> </a>
+							<div id="campaign2" class="list-group subitem collapse side_bar_campaign">
+								<div class="info_display" id="total_budget" >$5,00,000.00</div>
+								<div id="uploaded_file" class="info_display error">file.jpg</div>
+								<div>
+									<span id="start_date_time" class="info_display">5/13/14</span>-<span id="end_date_time" class="info_display">5/16/14</span>
+								</div>
+								<div id="targets" class="info_display">No targets</div>
+							</div>
+							<a href="#campaig3" class="list-group-item campaign_name campaign3"  data-parent="#sidebar"><span id="campaign_name">Campaign First</span><span class="badge badge_waiting"> . . . </span> </a>
+							<div id="campaign3" class="list-group subitem collapse side_bar_campaign">
+								<div id="total_budget" class="info_display">$1,000,000.00</div>
+								<div id="uploaded_file" class="info_display error">temp-file.jpg</div>
+								<div>
+									<span id="start_date_time" class="info_display error">No Start Date</span>-<span id="end_date_time" class="info_display error">No End Date</span>
+								</div>
+								<div id="targets"class="info_display">No targets</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+
+<!--RESOURCES
+http://bootsnipp.com/forms?version=3
+Date Time Picker - http://eonasdan.github.io/bootstrap-datetimepicker/
+-->
